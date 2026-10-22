@@ -242,7 +242,7 @@
     <div class="tile">
       <div class="label"><span class="swatch" style="background:var(--gold)"></span>예약 필요</div>
       <div class="num">2<span style="font-size:16px;color:var(--ink-3)">건</span></div>
-      <div class="foot">골프 3차(가변) · ESTA 2인</div>
+      <div class="foot">골프 3차(가변) · ESTA 배**</div>
     </div>
   </div>
 
@@ -436,7 +436,7 @@
   var todos = [
     { color:"var(--slate)", name:"진주만 · 배틀십 미주리", sub:"ussmissouri.org 개별 입장권 $44.99/인 · 입장 시간 예약 없음 (마지막 입장 15:00)", date:"11.15 10:45경", action:"시간 예약 불필요 — 현장 구매 또는 온라인 사전구매", optional:true },
     { color:"var(--slate)", name:"골프 3차 (가변) · 펄 CC 등", sub:"진행 여부 당일 컨디션에 따라 결정", date:"11.18 오전", action:"진행 여부 + 예약 미정" },
-    { color:"var(--violet)", name:"ESTA · 노** · 배**", sub:"공식 사이트 esta.cbp.dhs.gov에서 각자 신청", date:"출발 전", action:"미신청 — 서둘러야 함" }
+    { color:"var(--violet)", name:"ESTA · 배**", sub:"노** 신청 완료 · 배**은 공식 사이트 esta.cbp.dhs.gov에서 신청", date:"출발 전", action:"미신청 — 서둘러야 함" }
   ];
   var todosEl = document.getElementById("todos");
   todos.forEach(function(r){
@@ -483,7 +483,7 @@
   // ---------- Checklist (localStorage, per-viewer only) ----------
   var items = [
     "여권 유효기간 확인 (전원) — 이** 2029년 만료 확인 완료",
-    "노**·배** ESTA 신청 (esta.cbp.dhs.gov, 출발 최소 72시간 전)",
+    "배** ESTA 신청 (esta.cbp.dhs.gov, 출발 최소 72시간 전) — 노** 완료",
     "국내 운전면허증 지참 (하와이는 국제면허 필수 아님)",
     "주운전자 명의 해외결제 신용카드",
     "쿠알로아 랜치 Waiver 사전 서명 확인",
