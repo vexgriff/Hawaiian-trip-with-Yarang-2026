@@ -1,0 +1,514 @@
+<!doctype html><html lang="ko"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Oahu Night Flight</title>
+<meta name="description" content="하와이 오아후 7박 8일 여행 상황판 — 일정, 예약 확정 내역, 결제 현황">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    color-scheme: dark;
+    --bg-page:      #0e1a2b;
+    --bg-page-2:    #0a1420;
+    --surface-1:    #16283f;
+    --surface-2:    #1d3352;
+    --surface-3:    #24405f;
+    --line:         rgba(245,243,236,0.10);
+    --line-strong:  rgba(245,243,236,0.18);
+    --ink-1:        #f5f3ec;
+    --ink-2:        #b7c3d4;
+    --ink-3:        #7e8ea3;
+    --coral:        #ff8064;
+    --coral-dim:    #4a2c26;
+    --teal:         #2dd4bf;
+    --teal-dim:     #163b38;
+    --gold:         #f2b134;
+    --gold-dim:     #3d3013;
+    --violet:       #a58bf0;
+    --violet-dim:   #2c2650;
+    --slate:        #93a3b8;
+    --slate-dim:    #22344a;
+    --good:         #3ddc84;
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    background: var(--bg-page);
+    color: var(--ink-1);
+    font-family: var(--font-body);
+    padding-inline: 20px;
+    padding-block: 28px;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255,128,100,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 100% 0%, rgba(45,212,191,0.08), transparent 55%);
+    background-attachment: fixed;
+  }
+  a{ color: inherit; }
+
+  .wrap{ max-width: 980px; margin: 0 auto; display:flex; flex-direction:column; gap:28px; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background: linear-gradient(155deg, var(--surface-1), var(--bg-page-2) 85%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px clamp(18px,4vw,36px);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(100deg, transparent 0 46px, rgba(255,255,255,0.025) 46px 47px);
+    pointer-events:none;
+  }
+  .hero-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .eyebrow{
+    font-family: var(--font-mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color: var(--teal); display:flex; align-items:center; gap:8px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background: var(--teal); box-shadow:0 0 0 3px var(--teal-dim); }
+  h1{
+    font-family: var(--font-display); font-weight:600; font-size: clamp(30px, 5.5vw, 46px);
+    line-height:1.05; margin: 10px 0 6px; text-wrap:balance;
+  }
+  h1 em{ font-style:italic; font-weight:500; color: var(--coral); }
+  .hero-sub{ color: var(--ink-2); font-size:15px; max-width:46ch; }
+  .crew{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+  .crew span{
+    font-size:12.5px; padding:5px 11px; border-radius:999px; border:1px solid var(--line-strong);
+    color: var(--ink-2); background: rgba(255,255,255,0.03);
+  }
+
+  .boarding{
+    margin-top:22px; border-top:1px dashed var(--line-strong); padding-top:18px;
+    display:flex; flex-wrap:wrap; gap:0 28px; row-gap:14px; justify-content:space-between;
+  }
+  .bstat{ min-width:120px; }
+  .bstat .k{ font-family: var(--font-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); }
+  .bstat .v{ font-family: var(--font-mono); font-size: 19px; font-weight:700; color:var(--ink-1); margin-top:4px; font-variant-numeric: tabular-nums; }
+  .bstat .v.accent{ color: var(--coral); }
+
+  /* ---------- Stat tiles ---------- */
+  .tiles{ display:grid; grid-template-columns: repeat(5, 1fr); gap:14px; }
+  @media (max-width: 900px){ .tiles{ grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 560px){ .tiles{ grid-template-columns: repeat(2,1fr); } }
+  .tile{
+    background: var(--surface-1); border:1px solid var(--line); border-radius:16px; padding:18px 18px 16px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .tile .label{ font-size:12px; color:var(--ink-3); display:flex; align-items:center; gap:6px; }
+  .tile .num{ font-family: var(--font-display); font-size:30px; font-weight:600; font-variant-numeric: tabular-nums; }
+  .tile .foot{ font-size:12px; color:var(--ink-2); }
+  .swatch{ width:8px; height:8px; border-radius:2px; display:inline-block; }
+
+  /* ---------- Section shell ---------- */
+  section.block{ display:flex; flex-direction:column; gap:14px; }
+  .block-head{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .block-head h2{ font-family: var(--font-display); font-size:22px; font-weight:600; margin:0; }
+  .block-head .note{ font-size:12.5px; color:var(--ink-3); }
+
+  /* ---------- Timeline ---------- */
+  .timeline{ display:flex; flex-direction:column; }
+  .day{
+    display:grid; grid-template-columns: 84px 1fr; gap:16px; padding:16px 0; position:relative;
+    border-top:1px solid var(--line);
+  }
+  .day:first-child{ border-top:1px solid var(--line); }
+  .day-date{ display:flex; flex-direction:column; padding-top:2px; }
+  .day-date .dnum{ font-family:var(--font-display); font-size:26px; font-weight:600; line-height:1; }
+  .day-date .dwk{ font-size:11.5px; color:var(--ink-3); margin-top:4px; }
+  .day-body{ min-width:0; }
+  .day-title-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .day-title{ font-weight:600; font-size:15.5px; }
+  .tag{
+    font-size:11px; padding:3px 9px; border-radius:999px; font-weight:600; letter-spacing:.02em; white-space:nowrap;
+  }
+  .tag.golf{ background:var(--gold-dim); color:var(--gold); }
+  .tag.activity{ background:var(--coral-dim); color:var(--coral); }
+  .tag.history{ background:var(--teal-dim); color:var(--teal); }
+  .tag.free{ background:var(--violet-dim); color:var(--violet); }
+  .tag.transit{ background:var(--slate-dim); color:var(--slate); }
+  .agenda{ display:flex; flex-direction:column; gap:5px; }
+  .agenda .row{ display:grid; grid-template-columns: 108px 1fr; gap:10px; font-size:13.5px; color:var(--ink-2); }
+  .agenda .row .time{ font-family:var(--font-mono); font-size:12px; color:var(--ink-3); white-space:nowrap; }
+  .agenda .row b{ color:var(--ink-1); font-weight:500; }
+  .agenda .row .ref{ font-family:var(--font-mono); font-size:11.5px; color:var(--teal); }
+  @media (max-width:560px){
+    .day{ grid-template-columns: 56px 1fr; }
+    .day-date .dnum{ font-size:20px; }
+    .agenda .row{ grid-template-columns: 78px 1fr; }
+  }
+
+  /* ---------- Reservation cards ---------- */
+  .stubs{ display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
+  @media (max-width:700px){ .stubs{ grid-template-columns: 1fr; } }
+  .stub{
+    background: var(--surface-1); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex;
+  }
+  .stub .side{
+    width:10px; flex-shrink:0;
+  }
+  .stub .body{ padding:16px 18px; flex:1; min-width:0; display:flex; flex-direction:column; gap:10px; }
+  .stub .top{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  .stub .name{ font-weight:600; font-size:14.5px; }
+  .stub .sub{ font-size:12px; color:var(--ink-3); margin-top:2px; }
+  .status{ display:flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--good); white-space:nowrap; }
+  .status i{ width:6px; height:6px; border-radius:50%; background:var(--good); display:inline-block; }
+  .status.pending{ color: var(--gold); }
+  .status.pending i{ background: var(--gold); box-shadow:0 0 0 3px var(--gold-dim); }
+  .status.optional{ color: var(--slate); }
+  .status.optional i{ background: var(--slate); }
+  .stub .grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; border-top:1px dashed var(--line-strong); padding-top:10px; }
+  .stub .grid div{ font-size:12px; color:var(--ink-3); }
+  .stub .grid div b{ display:block; color:var(--ink-1); font-family:var(--font-mono); font-size:13px; font-weight:600; margin-top:2px; }
+  .stub .amt{ font-family:var(--font-mono); font-size:12px; color:var(--ink-3); }
+  .stub .amt b{ color:var(--coral); font-size:15px; }
+  .stub .amt.action b{ color:var(--gold); font-size:12.5px; }
+
+  /* ---------- Cost chart ---------- */
+  .cost-wrap{ background:var(--surface-1); border:1px solid var(--line); border-radius:16px; padding:20px clamp(16px,3vw,26px); }
+  .cost-row{ display:grid; grid-template-columns: 132px 1fr 92px; align-items:center; gap:14px; padding:9px 0; }
+  .cost-row .lbl{ font-size:13px; color:var(--ink-2); }
+  .cost-row .bar-track{ height:10px; border-radius:6px; background:var(--surface-3); overflow:hidden; }
+  .cost-row .bar-fill{ height:100%; border-radius:6px; }
+  .cost-row .val{ font-family:var(--font-mono); font-size:13px; text-align:right; color:var(--ink-1); font-variant-numeric:tabular-nums; }
+  .cost-total{ display:flex; justify-content:space-between; align-items:baseline; margin-top:14px; padding-top:14px; border-top:1px solid var(--line-strong); }
+  .cost-total .l{ font-size:13px; color:var(--ink-3); }
+  .cost-total .v{ font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--coral); }
+  .cost-fine{ font-size:11.5px; color:var(--ink-3); margin-top:10px; }
+
+  /* ---------- Checklist ---------- */
+  .checklist{ display:grid; grid-template-columns: repeat(2,1fr); gap:10px 20px; }
+  @media (max-width:700px){ .checklist{ grid-template-columns:1fr; } }
+  .citem{ display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:var(--ink-2); padding:10px 0; border-top:1px solid var(--line); }
+  .citem input{ appearance:none; width:17px; height:17px; border-radius:5px; border:1.5px solid var(--line-strong); flex-shrink:0; margin-top:1px; cursor:pointer; position:relative; background:var(--surface-2); }
+  .citem input:checked{ background: var(--teal); border-color:var(--teal); }
+  .citem input:checked::after{ content:""; position:absolute; left:4px; top:1px; width:5px; height:9px; border:solid var(--bg-page-2); border-width:0 2px 2px 0; transform:rotate(40deg); }
+  .citem label{ cursor:pointer; }
+  .citem.checked label{ color:var(--ink-3); text-decoration:line-through; }
+  .citem b{ color:var(--ink-1); font-weight:600; }
+  .citem.checked b{ color: inherit; }
+
+  footer{ text-align:center; color:var(--ink-3); font-size:12px; padding-top:6px; }
+</style>
+
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> TRIP DASHBOARD · OAHU, HAWAII</div>
+        <h1>7박 8일, <em>오아후</em>에서<br>완전히 늘어지기</h1>
+        <p class="hero-sub">노형석 · 배종원 · 이신욱 — 만 50세 친구 3인의 골프 &amp; 액티비티 여행. 체력 안배형 휴식, 골프 라운딩, 핵심 액티비티, 역사 탐방을 섞은 일정입니다.</p>
+        <div class="crew"><span>노형석</span><span>배종원</span><span>이신욱</span></div>
+      </div>
+    </div>
+
+    <div class="boarding">
+      <div class="bstat"><div class="k">Depart · ICN → HNL</div><div class="v">11.12 THU · KE 053</div></div>
+      <div class="bstat"><div class="k">Return · HNL → ICN</div><div class="v">11.19 THU · KE 054</div></div>
+      <div class="bstat"><div class="k">PNR</div><div class="v">•••Z8W</div></div>
+      <div class="bstat"><div class="k">D-Day</div><div class="v accent" id="ddayStat">—</div></div>
+    </div>
+  </div>
+
+  <!-- ================= STAT TILES ================= -->
+  <div class="tiles">
+    <div class="tile">
+      <div class="label"><span class="swatch" style="background:var(--coral)"></span>여행 기간</div>
+      <div class="num">7<span style="font-size:16px;color:var(--ink-3)">박</span>8<span style="font-size:16px;color:var(--ink-3)">일</span></div>
+      <div class="foot">11.12 (목) – 11.20 (금), 한국 도착 기준</div>
+    </div>
+    <div class="tile">
+      <div class="label"><span class="swatch" style="background:var(--gold)"></span>골프 라운딩</div>
+      <div class="num">2<span style="font-size:16px;color:var(--ink-3)">–3회</span></div>
+      <div class="foot">11.14 · 11.17 · 11.18(가변)</div>
+    </div>
+    <div class="tile">
+      <div class="label"><span class="swatch" style="background:var(--teal)"></span>확정 예약</div>
+      <div class="num">6<span style="font-size:16px;color:var(--ink-3)">건</span></div>
+      <div class="foot">항공 · 숙소 · 렌터카 · 액티비티 2 · 진주만 1</div>
+    </div>
+    <div class="tile">
+      <div class="label"><span class="swatch" style="background:var(--violet)"></span>결제 총액 (USD)</div>
+      <div class="num">$1,897</div>
+      <div class="foot">항공권(₩1,375,500) 별도</div>
+    </div>
+    <div class="tile">
+      <div class="label"><span class="swatch" style="background:var(--gold)"></span>예약 필요</div>
+      <div class="num">4<span style="font-size:16px;color:var(--ink-3)">건</span></div>
+      <div class="foot">골프 3 · ESTA 2인 (미주리는 현장 구매)</div>
+    </div>
+  </div>
+
+  <!-- ================= ITINERARY ================= -->
+  <section class="block">
+    <div class="block-head">
+      <h2>일자별 일정</h2>
+      <div class="note">체크인 · 예약번호는 각 일정 하단 참조</div>
+    </div>
+
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- ================= RESERVATIONS ================= -->
+  <section class="block">
+    <div class="block-head">
+      <h2>예약 확정 현황</h2>
+      <div class="note">Gmail 확인 메일 기준 · 공개 페이지라 예약번호는 끝 3자리만 표시</div>
+    </div>
+    <div class="stubs" id="stubs"></div>
+  </section>
+
+  <!-- ================= NEEDS RESERVATION ================= -->
+  <section class="block">
+    <div class="block-head">
+      <h2>예약 필요</h2>
+      <div class="note">아직 확정 안 됨 — 서두를수록 좋음</div>
+    </div>
+    <div class="stubs" id="todos"></div>
+  </section>
+
+  <!-- ================= COST BREAKDOWN ================= -->
+  <section class="block">
+    <div class="block-head">
+      <h2>결제 내역</h2>
+      <div class="note">1인 기준 항공권 제외 · 공동 지출 USD</div>
+    </div>
+    <div class="cost-wrap">
+      <div id="costRows"></div>
+      <div class="cost-total">
+        <div class="l">USD 합계</div>
+        <div class="v">$1,897.56</div>
+      </div>
+      <div class="cost-fine">항공권 KRW 1,375,500(이신욱 개인 결제, 노형석·배종원은 각자 예매)은 통화가 달라 위 합계에서 제외했습니다. 숙소는 HGV 포인트(9,920pt) 결제로 실 결제액은 취소보호료 $104뿐입니다.</div>
+    </div>
+  </section>
+
+  <!-- ================= CHECKLIST ================= -->
+  <section class="block">
+    <div class="block-head">
+      <h2>출발 전 체크리스트</h2>
+      <div class="note">이 브라우저에만 저장됩니다</div>
+    </div>
+    <div class="checklist" id="checklist"></div>
+  </section>
+
+  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V6 기준 + 애리조나 메모리얼 예약 확정 · 첫날 코스트코 일정 반영 (9.21)</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---------- D-day ----------
+  try{
+    var target = new Date("2026-11-12T20:35:00+09:00");
+    var now = new Date();
+    var diff = Math.ceil((target - now) / 86400000);
+    var el = document.getElementById("ddayStat");
+    if(diff > 0) el.textContent = "D-" + diff;
+    else if(diff === 0) el.textContent = "D-DAY";
+    else el.textContent = "여행 중/종료";
+  }catch(e){}
+
+  // ---------- Itinerary data ----------
+  var days = [
+    { d:"12", wk:"목 · Day 1", title:"하와이 도착 & 렌터카 수령 & 시내 적응", tag:"transit", tagLabel:"이동",
+      items:[
+        ["09:45","호놀룰루 공항 도착","KE 053"],
+        ["11:00–11:40","알라모 렌터카 셔틀 → 셰보레 타호 수령","•••••905"],
+        ["12:00–13:30","코스트코 이와일레이점 (525 Alakawa St) — 객실용 장보기: 스테이크 · 즉석밥 · 김치 · 김 등 (점심은 푸드코트 가능)",""],
+        ["14:00–15:00","Lagoon Tower 체크인","••••••905"],
+        ["15:00–18:00","와이키키 해변 산책, 시차 적응",""]
+      ]},
+    { d:"13", wk:"금 · Day 2", title:"쿠알로아 랜치 UTV 랩터 투어", tag:"activity", tagLabel:"액티비티",
+      items:[
+        ["08:45","숙소 출발 (편도 약 50분–1시간)",""],
+        ["09:45","현장 체크인 · Waiver 서명","•••••740 / •••••X72"],
+        ["10:30–12:30","2시간 UTV 랩터 투어",""],
+        ["12:45–14:00","점심 (카일루아 / 카네오헤)",""],
+        ["17:30–","와이키키 저녁 & 야경",""]
+      ]},
+    { d:"14", wk:"토 · Day 3", title:"[골프 1차] 360 에바 비치 CC & 쇼핑", tag:"golf", tagLabel:"골프",
+      items:[
+        ["오전","360 에바 비치 CC 18홀 (이른 티타임 권장)",""],
+        ["오후","클럽하우스 점심 → 알라모아나 / 와이켈레 아울렛",""],
+        ["저녁","와이키키 자유 일정",""]
+      ]},
+    { d:"15", wk:"일 · Day 4", title:"진주만 역사 탐방 & 남부 파노라마 드라이브", tag:"history", tagLabel:"역사탐방",
+      items:[
+        ["08:45","진주만 방문자센터 도착 · 주차($7 현장결제) · 가방 보관",""],
+        ["09:35","메모리얼 극장 도착 (예약 10분 전)",""],
+        ["09:45–10:30","USS 애리조나 메모리얼 프로그램 (영상 + 보트) · 3인","•••••••••5-1"],
+        ["10:45–12:30","배틀십 미주리 (셔틀 · 한국어 가이드 투어 · 시간 예약 불필요)",""],
+        ["12:45–14:00","점심 (니코스 피어 38 / 카카아코)",""],
+        ["14:30–17:30","다이아몬드 헤드 · 하나우마 베이 · 할로나 블로우홀 · 마카푸우",""],
+        ["18:00–","와이키키 저녁 만찬",""]
+      ]},
+    { d:"16", wk:"월 · Day 5", title:"노스쇼어 드라이브 & 폴리네시아 문화센터", tag:"activity", tagLabel:"액티비티",
+      items:[
+        ["오전","노스쇼어 · 할레이바 · 라니아케아 거북이 비치",""],
+        ["12:00–17:00","PCC 입장 · Huki Canoe Show","••••470"],
+        ["16:30–18:30","Ali'i Lû'au 체크인 & 뷔페",""],
+        ["19:00–21:00","'Hā: Breath of Life' 메인쇼 (Gold석)",""]
+      ]},
+    { d:"17", wk:"화 · Day 6", title:"[골프 2차] 로열 쿠니아 CC & 비치 힐링", tag:"golf", tagLabel:"골프",
+      items:[
+        ["오전","로열 쿠니아 CC 18홀 (진주만·다이아몬드 헤드 조망)",""],
+        ["오후","와이키키 해변 산책 & 수영",""],
+        ["저녁","선셋 뷰 레스토랑",""]
+      ]},
+    { d:"18", wk:"수 · Day 7", title:"[골프 3차 or 자유] 유연한 자유 일정", tag:"free", tagLabel:"가변",
+      items:[
+        ["옵션 A","펄 CC / 로열 하와이안 GC 18홀",""],
+        ["옵션 B (추천)","카일루아·와이키키 해변 + 월마트·코스트코 쇼핑",""],
+        ["저녁","하와이 마지막 밤 특별 만찬",""]
+      ]},
+    { d:"19", wk:"목 · Day 8", title:"렌터카 반납 & 귀국", tag:"transit", tagLabel:"이동",
+      items:[
+        ["10:00","알라모 렌터카 반납 (연료 옵션 포함, 주유 불필요)","•••••905"],
+        ["10:20","호놀룰루 공항 터미널 2 체크인",""],
+        ["12:05","KE 054편 출발","•••Z8W"]
+      ]},
+    { d:"20", wk:"금 · Day 9", title:"한국 도착", tag:"transit", tagLabel:"이동",
+      items:[
+        ["17:35","인천국제공항 터미널 2 도착",""]
+      ]}
+  ];
+
+  var tl = document.getElementById("timeline");
+  days.forEach(function(day){
+    var el = document.createElement("div");
+    el.className = "day";
+    var rows = day.items.map(function(it){
+      var ref = it[2] ? '<span class="ref">'+it[2]+'</span>' : "";
+      return '<div class="row"><span class="time">'+it[0]+'</span><span><b>'+it[1]+'</b> '+ref+'</span></div>';
+    }).join("");
+    el.innerHTML =
+      '<div class="day-date"><div class="dnum">11.'+day.d+'</div><div class="dwk">'+day.wk+'</div></div>' +
+      '<div class="day-body">' +
+        '<div class="day-title-row"><span class="day-title">'+day.title+'</span><span class="tag '+day.tag+'">'+day.tagLabel+'</span></div>' +
+        '<div class="agenda">'+rows+'</div>' +
+      '</div>';
+    tl.appendChild(el);
+  });
+
+  // ---------- Reservations ----------
+  var res = [
+    { color:"var(--coral)", name:"대한항공 KE053 / KE054", sub:"이신욱 개인 항공권", conf:"•••Z8W", date:"11.12 → 11.20", amt:"₩1,375,500" },
+    { color:"var(--slate)", name:"HGV Lagoon Tower", sub:"2003 Kalia Rd, Honolulu · 1BR Plus", conf:"••••••905", date:"11.12 → 11.19", amt:"$104.00 (취소보호료)" },
+    { color:"var(--teal)", name:"알라모 렌터카", sub:"Fullsize SUV · 베이직플러스", conf:"•••••905", date:"11.12 → 11.19", amt:"$655.00" },
+    { color:"var(--gold)", name:"쿠알로아 랜치 UTV 투어", sub:"성인 3명 · 2시간 랩터 투어", conf:"•••••740", date:"11.13 10:30", amt:"$488.25" },
+    { color:"var(--violet)", name:"폴리네시아 문화센터", sub:"Ali'i Lû'au · Gold Level 3석", conf:"••••470", date:"11.16 16:30", amt:"$647.31" },
+    { color:"var(--teal)", name:"진주만 · USS 애리조나 메모리얼", sub:"Recreation.gov · General Admission 3명 · 09:45–10:30", conf:"•••••••••5-1", date:"11.15 09:45", amt:"$3.00 (예약 수수료)" }
+  ];
+  var stubsEl = document.getElementById("stubs");
+  res.forEach(function(r){
+    var d = document.createElement("div");
+    d.className = "stub";
+    d.innerHTML =
+      '<div class="side" style="background:'+r.color+'"></div>' +
+      '<div class="body">' +
+        '<div class="top"><div><div class="name">'+r.name+'</div><div class="sub">'+r.sub+'</div></div>' +
+          '<div class="status"><i></i>CONFIRMED</div></div>' +
+        '<div class="grid">' +
+          '<div>예약번호<b>'+r.conf+'</b></div>' +
+          '<div>일정<b>'+r.date+'</b></div>' +
+        '</div>' +
+        '<div class="amt">결제금액 <b>'+r.amt+'</b></div>' +
+      '</div>';
+    stubsEl.appendChild(d);
+  });
+
+  // ---------- Needs reservation ----------
+  var todos = [
+    { color:"var(--slate)", name:"진주만 · 배틀십 미주리", sub:"ussmissouri.org 개별 입장권 $44.99/인 · 입장 시간 예약 없음 (마지막 입장 15:00)", date:"11.15 10:45경", action:"시간 예약 불필요 — 현장 구매 또는 온라인 사전구매", optional:true },
+    { color:"var(--slate)", name:"골프 1차 · 360 에바 비치 CC", sub:"주말 · 이른 티타임 권장", date:"11.14 오전", action:"티타임 예약 필요" },
+    { color:"var(--slate)", name:"골프 2차 · 로열 쿠니아 CC", sub:"진주만 · 다이아몬드헤드 조망", date:"11.17 오전", action:"티타임 예약 필요" },
+    { color:"var(--slate)", name:"골프 3차 (가변) · 펄 CC / 로열 하와이안 GC", sub:"진행 여부 당일 컨디션에 따라 결정", date:"11.18 오전", action:"진행 여부 + 예약 미정" },
+    { color:"var(--violet)", name:"ESTA · 노형석 · 배종원", sub:"공식 사이트 esta.cbp.dhs.gov에서 각자 신청", date:"출발 전", action:"미신청 — 서둘러야 함" }
+  ];
+  var todosEl = document.getElementById("todos");
+  todos.forEach(function(r){
+    var d = document.createElement("div");
+    d.className = "stub";
+    d.innerHTML =
+      '<div class="side" style="background:'+r.color+'"></div>' +
+      '<div class="body">' +
+        '<div class="top"><div><div class="name">'+r.name+'</div><div class="sub">'+r.sub+'</div></div>' +
+          (r.optional
+            ? '<div class="status optional"><i></i>NO TIMED RSVP</div></div>'
+            : '<div class="status pending"><i></i>PENDING</div></div>') +
+        '<div class="grid">' +
+          '<div>일정<b>'+r.date+'</b></div>' +
+        '</div>' +
+        '<div class="amt action">다음 액션 <b>'+r.action+'</b></div>' +
+      '</div>';
+    todosEl.appendChild(d);
+  });
+
+  // ---------- Cost bars ----------
+  var costs = [
+    { label:"알라모 렌터카", value:655.00, color:"var(--teal)" },
+    { label:"PCC Ali'i Lû'au", value:647.31, color:"var(--violet)" },
+    { label:"쿠알로아 UTV", value:488.25, color:"var(--gold)" },
+    { label:"숙소 취소보호료", value:104.00, color:"var(--slate)" },
+    { label:"애리조나 예약 수수료", value:3.00, color:"var(--teal)" }
+  ];
+  var max = Math.max.apply(null, costs.map(function(c){return c.value;}));
+  var rowsEl = document.getElementById("costRows");
+  costs.forEach(function(c){
+    var pct = Math.round((c.value / max) * 100);
+    var row = document.createElement("div");
+    row.className = "cost-row";
+    row.innerHTML =
+      '<div class="lbl">'+c.label+'</div>' +
+      '<div class="bar-track"><div class="bar-fill" style="width:'+pct+'%; background:'+c.color+'"></div></div>' +
+      '<div class="val">$'+c.value.toFixed(2)+'</div>';
+    rowsEl.appendChild(row);
+  });
+
+  // ---------- Checklist (localStorage, per-viewer only) ----------
+  var items = [
+    "여권 유효기간 확인 (전원) — 이신욱 2029년 만료 확인 완료",
+    "노형석·배종원 ESTA 신청 (esta.cbp.dhs.gov, 출발 최소 72시간 전)",
+    "국내 운전면허증 지참 (하와이는 국제면허 필수 아님)",
+    "주운전자 명의 해외결제 신용카드",
+    "쿠알로아 랜치 Waiver 사전 서명 확인",
+    "PCC 확인 이메일 + 신분증 + 결제 카드",
+    "진주만 방문 시 가방 반입 금지 — 지갑/폰/물병만",
+    "알라모 렌터카 온라인 체크인",
+    "골프 복장 (칼라 셔츠) 준비",
+    "애리조나 예약 QR(recgov_tickets.pdf) 캡처 + 신분증 지참 — 11.15 방문자센터 08:45 도착",
+    "코스트코 회원카드 지참 — 11.12 이와일레이점 (목 10:00–20:30 영업, 골드스타 기준)"
+  ];
+  var box = document.getElementById("checklist");
+  var saved = {};
+  try{ saved = JSON.parse(localStorage.getItem("oahu-checklist") || "{}"); }catch(e){ saved = {}; }
+
+  items.forEach(function(text, i){
+    var id = "chk-" + i;
+    var wrap = document.createElement("div");
+    wrap.className = "citem" + (saved[i] ? " checked" : "");
+    wrap.innerHTML =
+      '<input type="checkbox" id="'+id+'" '+(saved[i] ? "checked" : "")+'>' +
+      '<label for="'+id+'">'+text+'</label>';
+    box.appendChild(wrap);
+    var input = wrap.querySelector("input");
+    input.addEventListener("change", function(){
+      wrap.classList.toggle("checked", input.checked);
+      saved[i] = input.checked;
+      try{ localStorage.setItem("oahu-checklist", JSON.stringify(saved)); }catch(e){}
+    });
+  });
+
+})();
+</script>
+
+</body></html>
