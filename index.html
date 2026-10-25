@@ -193,6 +193,14 @@
   .citem b{ color:var(--ink-1); font-weight:600; }
   .citem.checked b{ color: inherit; }
 
+  .status.alert{ color: var(--coral); }
+  .status.alert i{ background: var(--coral); box-shadow:0 0 0 3px var(--coral-dim); }
+  .stub .fine{ font-size:12.5px; line-height:1.55; color:var(--ink-2); }
+  .stub .links{ display:flex; flex-wrap:wrap; gap:8px 14px; font-size:12px; color:var(--ink-3); }
+  .stub .links a{ color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
+  .cgroup{ grid-column:1/-1; font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); padding-top:14px; }
+  .cgroup:first-child{ padding-top:0; }
+  .citem small{ display:block; color:var(--ink-3); font-size:12px; margin-top:2px; }
   footer{ text-align:center; color:var(--ink-3); font-size:12px; padding-top:6px; }
 </style>
 
@@ -240,9 +248,9 @@
       <div class="foot">항공권(₩1,375,500) 별도</div>
     </div>
     <div class="tile">
-      <div class="label"><span class="swatch" style="background:var(--gold)"></span>예약 필요</div>
+      <div class="label"><span class="swatch" style="background:var(--gold)"></span>예약·준비 필요</div>
       <div class="num">2<span style="font-size:16px;color:var(--ink-3)">건</span></div>
-      <div class="foot">골프 3차(가변) · ESTA 배**</div>
+      <div class="foot">국제운전면허증 · 골프 3차(가변) · ESTA 3인 완료</div>
     </div>
   </div>
 
@@ -268,7 +276,7 @@
   <!-- ================= NEEDS RESERVATION ================= -->
   <section class="block">
     <div class="block-head">
-      <h2>예약 필요</h2>
+      <h2>예약·준비 필요</h2>
       <div class="note">아직 확정 안 됨 — 서두를수록 좋음</div>
     </div>
     <div class="stubs" id="todos"></div>
@@ -290,16 +298,51 @@
     </div>
   </section>
 
+  <!-- ================= ENTRY DOCS ================= -->
+  <section class="block">
+    <div class="block-head">
+      <h2>입국 서류 &amp; 유의사항</h2>
+      <div class="note">주미대한민국대사관 공지 (2026.10.23) 반영</div>
+    </div>
+    <div class="stubs">
+      <div class="stub">
+        <div class="side" style="background:var(--good)"></div>
+        <div class="body">
+          <div class="top"><div><div class="name">ESTA · 3인 승인 완료</div><div class="sub">노** · 배** 신청·승인 완료 / 이** 기존 승인 유효</div></div>
+            <div class="status"><i></i>APPROVED</div></div>
+          <div class="grid">
+            <div>이** 유효기간<b>2027.03.30</b></div>
+            <div>여행 기간<b>11.12 – 11.19</b></div>
+          </div>
+          <div class="amt">승인 화면은 각자 휴대폰에 캡처해 두기</div>
+        </div>
+      </div>
+      <div class="stub">
+        <div class="side" style="background:var(--coral)"></div>
+        <div class="body">
+          <div class="top"><div><div class="name">콩고민주공화국(DRC) 미방문 증명서 서명</div><div class="sub">에볼라 관련 미 CDC 조치 · 11.3(화) 23:59 미 동부시간 이후 미국에 입국하는 모든 국제선 승객 대상, 국적·출발지 무관</div></div>
+            <div class="status alert"><i></i>REQUIRED</div></div>
+          <div class="grid">
+            <div>서명 시점<b>11.12 인천 탑승 수속</b></div>
+            <div>대상<b>3인 전원</b></div>
+          </div>
+          <div class="fine">최근 21일 내 DRC 방문·체류가 없다는 증명서입니다. 서명하지 않으면 입국할 수 없고, 허위 작성 시 미 법무부 형사 기소 대상입니다. 남수단·우간다 21일 내 방문자 지정 공항 입국 조항은 우리 일정과 무관합니다.</div>
+          <div class="links"><a href="https://down.mofa.go.kr/us-ko/brd/m_27214/view.do?seq=1344552" target="_blank" rel="noopener">대사관 공지</a><a href="https://www.cdc.gov/ebola/situation-summary/returning-travelers.html" target="_blank" rel="noopener">CDC 안내</a><span>영사안전콜센터 +82-2-3210-0404 (24시간)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= CHECKLIST ================= -->
   <section class="block">
     <div class="block-head">
-      <h2>출발 전 체크리스트</h2>
-      <div class="note">이 브라우저에만 저장됩니다</div>
+      <h2>필수 준비물 &amp; 출발 전 체크리스트</h2>
+      <div class="note">체크 표시는 이 브라우저에만 저장됩니다</div>
     </div>
     <div class="checklist" id="checklist"></div>
   </section>
 
-  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V6 기준 + 애리조나 메모리얼 예약 확정 · 첫날 코스트코 일정 · 골프 2회 예약 반영 (10.22)</footer>
+  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V6 기준 + 애리조나 메모리얼 예약 확정 · 첫날 코스트코 일정 · 골프 2회 예약 · ESTA 3인 완료 · 대사관 입국 공지 · 필수 준비물 반영 (10.25)</footer>
 </div>
 
 <script>
@@ -436,7 +479,7 @@
   var todos = [
     { color:"var(--slate)", name:"진주만 · 배틀십 미주리", sub:"ussmissouri.org 개별 입장권 $44.99/인 · 입장 시간 예약 없음 (마지막 입장 15:00)", date:"11.15 10:45경", action:"시간 예약 불필요 — 현장 구매 또는 온라인 사전구매", optional:true },
     { color:"var(--slate)", name:"골프 3차 (가변) · 펄 CC 등", sub:"진행 여부 당일 컨디션에 따라 결정", date:"11.18 오전", action:"진행 여부 + 예약 미정" },
-    { color:"var(--violet)", name:"ESTA · 배**", sub:"노** 신청 완료 · 배**은 공식 사이트 esta.cbp.dhs.gov에서 신청", date:"출발 전", action:"미신청 — 서둘러야 함" }
+    { color:"var(--coral)", name:"국제운전면허증 · 렌터카 운전자 2인", sub:"알라모는 한글 면허에 국제운전면허증(또는 공인 번역) 요구 · 국내 면허 원본과 함께 제시", date:"출발 전", action:"보유 여부 확인 · 없으면 발급" }
   ];
   var todosEl = document.getElementById("todos");
   todos.forEach(function(r){
@@ -480,37 +523,76 @@
     rowsEl.appendChild(row);
   });
 
-  // ---------- Checklist (localStorage, per-viewer only) ----------
-  var items = [
-    "여권 유효기간 확인 (전원) — 이** 2029년 만료 확인 완료",
-    "배** ESTA 신청 (esta.cbp.dhs.gov, 출발 최소 72시간 전) — 노** 완료",
-    "국내 운전면허증 지참 (하와이는 국제면허 필수 아님)",
-    "주운전자 명의 해외결제 신용카드",
-    "쿠알로아 랜치 Waiver 사전 서명 확인",
-    "PCC 확인 이메일 + 신분증 + 결제 카드",
-    "진주만 방문 시 가방 반입 금지 — 지갑/폰/물병만",
-    "알라모 렌터카 온라인 체크인",
-    "골프 복장 (칼라 셔츠) 준비 — 티타임 30분 전 도착, 24시간 이내 취소 환불 불가",
-    "애리조나 예약 QR(recgov_tickets.pdf) 캡처 + 신분증 지참 — 11.15 방문자센터 08:45 도착",
-    "코스트코 회원카드 지참 — 11.12 이와일레이점 (목 10:00–20:30 영업, 골드스타 기준)"
+  // ---------- Checklist (grouped; localStorage keyed by item text, per-viewer only) ----------
+  var groups = [
+    { g:"서류 · 입국", items:[
+      ["여권 (전원)", "체류 기간 내내 유효해야 함 · 이** 2029년 만료 확인 완료"],
+      ["ESTA 승인 확인 (3인 완료)", "이** 유효기간 2027.03.30 · 승인 화면 캡처 보관"],
+      ["DRC 미방문 증명서 서명 (전원)", "11.12 인천 탑승 수속 때 서명 · 미서명 시 입국 불가"],
+      ["항공 e-티켓 KE053 / KE054", "휴대폰 저장 · 이** 외 2인은 각자 예매분"],
+      ["여행자 보험 가입", "미국 의료비가 매우 높아 권장"],
+      ["세관 규정 확인", "육류 포함 식품(육포·소시지·고기 스프 라면 등) 반입 금지 · 1만 달러 이상 현금은 신고"]
+    ]},
+    { g:"운전 · 렌터카", items:[
+      ["국내 운전면허증 원본 (운전자 2인)", "사본·임시면허 불가"],
+      ["국제운전면허증 (운전자 2인)", "알라모는 한글 면허에 IDP 또는 공인 번역 요구 · 원본 면허와 함께 제시"],
+      ["주운전자 명의 해외결제 신용카드", "렌터카 보증금 결제용"],
+      ["알라모 렌터카 온라인 체크인", ""]
+    ]},
+    { g:"결제 · 현금", items:[
+      ["해외결제 카드 2장 이상", "분실·결제 오류 대비"],
+      ["소액 USD 현금", "팁 · 소액 결제용"],
+      ["코스트코 회원카드", "11.12 이와일레이점 (목 10:00–20:30, 골드스타 기준)"]
+    ]},
+    { g:"예약 확인 (휴대폰 캡처)", items:[
+      ["애리조나 예약 QR + 신분증", "recgov_tickets.pdf · 11.15 08:45 방문자센터 도착"],
+      ["쿠알로아 랜치 Waiver 사전 서명", ""],
+      ["PCC 확인 이메일 + 신분증 + 결제 카드", ""],
+      ["골프 예약 메일 2건 (11.14 · 11.17)", "티타임 30분 전 도착 · 24시간 이내 취소 환불 불가"]
+    ]},
+    { g:"전자기기", items:[
+      ["미국용 변환 플러그 (한국 둥근 핀 → 미국 11자 콘센트)", "미국은 120V · 60Hz. 휴대폰·노트북 충전기는 대부분 프리볼트(100–240V)라 플러그만 바꾸면 됨"],
+      ["220V 전용 기기는 두고 가기", "드라이기·고데기 등은 미국 전압에서 제대로 작동하지 않음 · 숙소 드라이기 이용"],
+      ["멀티탭 또는 멀티 USB 충전기", "변환 플러그 하나로 여러 기기 충전"],
+      ["보조배터리", "기내 휴대만 가능 · 위탁 수하물 금지"],
+      ["충전 케이블 · 차량용 충전기 · 폰 거치대", "렌터카 내비용"]
+    ]},
+    { g:"골프 · 액티비티 · 의류", items:[
+      ["골프 복장 · 용품", "칼라 셔츠 필수, 스파이크리스 골프화, 장갑, 모자 · 클럽 지참 또는 렌탈 확인"],
+      ["쿠알로아 UTV 복장", "버려도 되는 옷·운동화, 버프·마스크"],
+      ["진주만 소지품", "가방 반입 금지 · 지갑/폰/물병, 투명 가방만"],
+      ["리프세이프 선크림 · 선글라스 · 수영복", "하와이는 옥시벤존·옥티녹세이트 선크림 판매 금지"],
+      ["얇은 겉옷", "실내 냉방 · 저녁 바람 대비"]
+    ]},
+    { g:"건강", items:[
+      ["상비약 · 복용 중인 처방약", "소화제, 진통제, 멀미약 등 · 처방약은 원래 포장 그대로"]
+    ]}
   ];
   var box = document.getElementById("checklist");
+  var STORE = "oahu-checklist-v2";
   var saved = {};
-  try{ saved = JSON.parse(localStorage.getItem("oahu-checklist") || "{}"); }catch(e){ saved = {}; }
-
-  items.forEach(function(text, i){
-    var id = "chk-" + i;
-    var wrap = document.createElement("div");
-    wrap.className = "citem" + (saved[i] ? " checked" : "");
-    wrap.innerHTML =
-      '<input type="checkbox" id="'+id+'" '+(saved[i] ? "checked" : "")+'>' +
-      '<label for="'+id+'">'+text+'</label>';
-    box.appendChild(wrap);
-    var input = wrap.querySelector("input");
-    input.addEventListener("change", function(){
-      wrap.classList.toggle("checked", input.checked);
-      saved[i] = input.checked;
-      try{ localStorage.setItem("oahu-checklist", JSON.stringify(saved)); }catch(e){}
+  try{ saved = JSON.parse(localStorage.getItem(STORE) || "{}") || {}; }catch(e){ saved = {}; }
+  var n = 0;
+  groups.forEach(function(grp){
+    var h = document.createElement("div");
+    h.className = "cgroup";
+    h.textContent = grp.g;
+    box.appendChild(h);
+    grp.items.forEach(function(it){
+      var key = it[0];
+      var id = "chk-" + (n++);
+      var wrap = document.createElement("div");
+      wrap.className = "citem" + (saved[key] ? " checked" : "");
+      wrap.innerHTML =
+        '<input type="checkbox" id="'+id+'" '+(saved[key] ? "checked" : "")+'>' +
+        '<label for="'+id+'"><b>'+it[0]+'</b>'+(it[1] ? '<small>'+it[1]+'</small>' : '')+'</label>';
+      box.appendChild(wrap);
+      var input = wrap.querySelector("input");
+      input.addEventListener("change", function(){
+        wrap.classList.toggle("checked", input.checked);
+        saved[key] = input.checked;
+        try{ localStorage.setItem(STORE, JSON.stringify(saved)); }catch(e){}
+      });
     });
   });
 
