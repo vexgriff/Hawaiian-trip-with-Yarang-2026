@@ -262,8 +262,8 @@
     </div>
     <div class="tile">
       <div class="label"><span class="swatch" style="background:var(--gold)"></span>예약·준비 필요</div>
-      <div class="num">2<span style="font-size:16px;color:var(--ink-3)">건</span></div>
-      <div class="foot">국제운전면허증 · 골프 3차(가변) · ESTA 3인 완료</div>
+      <div class="num">1<span style="font-size:16px;color:var(--ink-3)">건</span></div>
+      <div class="foot">골프 3차(가변) · ESTA 3인 · 국제운전면허증 2인 발급 완료</div>
     </div>
   </div>
 
@@ -371,7 +371,7 @@
     <div class="checklist" id="checklist"></div>
   </section>
 
-  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V10 기준 · 항공 시간 확정(KE053 20:50→09:40 / KE054 11:40→17:35) · 렌터카 08:00 반납 · 여행자 보험 · A4 예약 확인서 6종 (11.07)</footer>
+  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V10 기준 · 항공 시간 확정(KE053 20:50→09:40 / KE054 11:40→17:35) · 렌터카 08:00 반납 · 여행자 보험 · A4 예약 확인서 6종 · PCC 공연 시간 변경 · 국제운전면허증 2인 발급 완료 (11.08)</footer>
 </div>
 
 <script>
@@ -509,8 +509,7 @@
   // ---------- Needs reservation ----------
   var todos = [
     { color:"var(--slate)", name:"진주만 · 배틀십 미주리", sub:"ussmissouri.org 개별 입장권 $44.99/인 · 입장 시간 예약 없음 (마지막 입장 15:00)", date:"11.15 10:45경", action:"시간 예약 불필요 — 현장 구매 또는 온라인 사전구매", optional:true },
-    { color:"var(--slate)", name:"골프 3차 (가변) · 펄 CC 등", sub:"진행 여부 당일 컨디션에 따라 결정", date:"11.18 오전", action:"진행 여부 + 예약 미정" },
-    { color:"var(--coral)", name:"국제운전면허증 · 렌터카 운전자 2인", sub:"알라모는 한글 면허에 국제운전면허증(또는 공인 번역) 요구 · 국내 면허 원본과 함께 제시", date:"출발 전", action:"보유 여부 확인 · 없으면 발급" }
+    { color:"var(--slate)", name:"골프 3차 (가변) · 펄 CC 등", sub:"진행 여부 당일 컨디션에 따라 결정", date:"11.18 오전", action:"진행 여부 + 예약 미정" }
   ];
   var todosEl = document.getElementById("todos");
   todos.forEach(function(r){
@@ -566,7 +565,7 @@
     ]},
     { g:"운전 · 렌터카", items:[
       ["국내 운전면허증 원본 (운전자 2인)", "사본·임시면허 불가"],
-      ["국제운전면허증 (운전자 2인)", "알라모는 한글 면허에 IDP 또는 공인 번역 요구 · 원본 면허와 함께 제시"],
+      ["국제운전면허증 (운전자 2인) · 발급 완료", "알라모는 한글 면허에 IDP 또는 공인 번역 요구 · 원본 면허와 함께 제시"],
       ["주운전자 명의 해외결제 신용카드", "렌터카 보증금 결제용"],
       ["알라모 렌터카 온라인 체크인", ""]
     ]},
