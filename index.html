@@ -123,6 +123,9 @@
   .day-date .dwk{ font-size:11.5px; color:var(--ink-3); margin-top:4px; }
   .day-body{ min-width:0; }
   .day-title-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .wx{ display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--ink-2); border:1px solid var(--line-strong); border-radius:999px; padding:2px 9px; white-space:nowrap; }
+  .wx b{ font-family:var(--font-mono); font-weight:600; color:var(--ink-1); font-size:11.5px; }
+  .wx .rain{ color:var(--teal); }
   .day-title{ font-weight:600; font-size:15.5px; }
   .tag{
     font-size:11px; padding:3px 9px; border-radius:999px; font-weight:600; letter-spacing:.02em; white-space:nowrap;
@@ -372,7 +375,7 @@
     <div class="checklist" id="checklist"></div>
   </section>
 
-  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V10 기준 · 항공 시간 확정(KE053 20:50→09:40 / KE054 11:40→17:35) · 렌터카 08:00 반납 · 여행자 보험 · A4 예약 확인서 6종 · PCC 공연 시간 변경 · 국제운전면허증 2인 발급 완료 · PCC 티켓 일정 · 다이아몬드 헤드 11.13 16:00 예약 확정 (11.09)</footer>
+  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V10 기준 · 항공 시간 확정(KE053 20:50→09:40 / KE054 11:40→17:35) · 렌터카 08:00 반납 · 여행자 보험 · A4 예약 확인서 6종 · PCC 공연 시간 변경 · 국제운전면허증 2인 발급 완료 · PCC 티켓 일정 · 다이아몬드 헤드 11.13 16:00 예약 확정 · 일자별 날씨 예보 (11.10)</footer>
 </div>
 
 <script>
@@ -464,7 +467,15 @@
   ];
 
   var tl = document.getElementById("timeline");
+  // Forecast collected 11.10 (KST); highs/lows in °C
+  var weather = {
+    "12":["구름 많음",23,20,"15%"], "13":["대체로 맑음",24,19,"15%"], "14":["구름 조금",24,20,"15%"],
+    "15":["구름 조금",24,20,"15%"], "16":["구름 조금",25,19,"15%"], "17":["구름 조금",24,19,"15%"],
+    "18":["구름 조금",25,19,"15%"], "19":["맑고 가끔 구름",25,19,"5–10%"]
+  };
   days.forEach(function(day){
+    var w = weather[day.d];
+    var wx = w ? '<span class="wx">'+w[0]+' <b>'+w[1]+'° / '+w[2]+'°</b><span class="rain">비 '+w[3]+'</span></span>' : "";
     var el = document.createElement("div");
     el.className = "day";
     var rows = day.items.map(function(it){
@@ -474,7 +485,7 @@
     el.innerHTML =
       '<div class="day-date"><div class="dnum">11.'+day.d+'</div><div class="dwk">'+day.wk+'</div></div>' +
       '<div class="day-body">' +
-        '<div class="day-title-row"><span class="day-title">'+day.title+'</span><span class="tag '+day.tag+'">'+day.tagLabel+'</span></div>' +
+        '<div class="day-title-row"><span class="day-title">'+day.title+'</span><span class="tag '+day.tag+'">'+day.tagLabel+'</span>'+wx+'</div>' +
         '<div class="agenda">'+rows+'</div>' +
       '</div>';
     tl.appendChild(el);
