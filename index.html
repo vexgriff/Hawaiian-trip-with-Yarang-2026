@@ -262,8 +262,8 @@
     </div>
     <div class="tile">
       <div class="label"><span class="swatch" style="background:var(--gold)"></span>예약·준비 필요</div>
-      <div class="num">1<span style="font-size:16px;color:var(--ink-3)">건</span></div>
-      <div class="foot">골프 3차(가변) · ESTA 3인 · 국제운전면허증 2인 발급 완료</div>
+      <div class="num">2<span style="font-size:16px;color:var(--ink-3)">건</span></div>
+      <div class="foot">다이아몬드 헤드 예약 · 골프 3차(가변) · 국제운전면허증 2인 발급 완료</div>
     </div>
   </div>
 
@@ -371,7 +371,7 @@
     <div class="checklist" id="checklist"></div>
   </section>
 
-  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V10 기준 · 항공 시간 확정(KE053 20:50→09:40 / KE054 11:40→17:35) · 렌터카 08:00 반납 · 여행자 보험 · A4 예약 확인서 6종 · PCC 공연 시간 변경 · 국제운전면허증 2인 발급 완료 · PCC 티켓 일정 (11.08)</footer>
+  <footer>마지막 업데이트 · 하와이 오아후 7박 8일 여행 일정표 V10 기준 · 항공 시간 확정(KE053 20:50→09:40 / KE054 11:40→17:35) · 렌터카 08:00 반납 · 여행자 보험 · A4 예약 확인서 6종 · PCC 공연 시간 변경 · 국제운전면허증 2인 발급 완료 · PCC 티켓 일정 · 다이아몬드 헤드 11.13 오후 추가 (11.09)</footer>
 </div>
 
 <script>
@@ -401,13 +401,15 @@
         ["14:00–15:00","Lagoon Tower 체크인","••••••905"],
         ["15:00–18:00","와이키키 해변 산책, 시차 적응",""]
       ]},
-    { d:"13", wk:"금 · Day 2", title:"쿠알로아 랜치 UTV 랩터 투어", tag:"activity", tagLabel:"액티비티",
+    { d:"13", wk:"금 · Day 2", title:"쿠알로아 UTV & 다이아몬드 헤드 하이킹", tag:"activity", tagLabel:"액티비티",
       items:[
         ["08:45","숙소 출발 (편도 약 50분–1시간)",""],
         ["09:45","현장 체크인 · Waiver 서명","•••••740 / •••••X72"],
         ["10:30–12:30","2시간 UTV 랩터 투어",""],
         ["12:45–14:00","점심 (카일루아 / 카네오헤)",""],
-        ["17:30–","와이키키 저녁 & 야경",""]
+        ["14:45–15:30","호텔 복귀 · 샤워 · 휴식",""],
+        ["16:00–17:45","다이아몬드 헤드 정상 하이킹 (16:00–16:30 입장 · 게이트 18:00 폐쇄)",""],
+        ["18:30–","와이키키 저녁",""]
       ]},
     { d:"14", wk:"토 · Day 3", title:"[골프 1차] 로열 하와이안 GC & 쇼핑", tag:"golf", tagLabel:"골프",
       items:[
@@ -508,6 +510,7 @@
 
   // ---------- Needs reservation ----------
   var todos = [
+    { color:"var(--coral)", name:"다이아몬드 헤드 · 입장 + 주차 예약", sub:"gostateparks.hawaii.gov · 비거주자 사전 예약 필수 · 입장 $5×3 + 주차 $10 = $25 · 확인 메일 QR 제시", date:"11.13 (금) 16:00", action:"16:00 주차 슬롯 예약 (현재 예약 가능)" },
     { color:"var(--slate)", name:"진주만 · 배틀십 미주리", sub:"ussmissouri.org 개별 입장권 $44.99/인 · 입장 시간 예약 없음 (마지막 입장 15:00)", date:"11.15 10:45경", action:"시간 예약 불필요 — 현장 구매 또는 온라인 사전구매", optional:true },
     { color:"var(--slate)", name:"골프 3차 (가변) · 펄 CC 등", sub:"진행 여부 당일 컨디션에 따라 결정", date:"11.18 오전", action:"진행 여부 + 예약 미정" }
   ];
